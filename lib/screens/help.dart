@@ -1,9 +1,11 @@
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
 import 'package:expose_corruption_app/screens/contact.dart';
+import 'package:expose_corruption_app/screens/settings.dart';
 import 'package:flutter/material.dart';
 
 class Help extends StatefulWidget {
   const Help({super.key});
+
 
   @override
   State<Help> createState() => _HelpState();
@@ -14,10 +16,23 @@ class _HelpState extends State<Help> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help and FAQ'),
+        backgroundColor: const Color(0xFF4B0082),
+        title: const Text('Help and FAQ', style: TextStyle(color: Colors.white),),
+        iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          IconButton(
+            onPressed: () {}, 
+          icon: const Icon(Icons.notification_add)),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Settings() ));
+            }, 
+          icon: const Icon(Icons.settings))
+        ]
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
-      body: Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+      body: Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 15),
         child: Column(
           children: [
             TextField(
@@ -30,19 +45,20 @@ class _HelpState extends State<Help> {
               ),
             ),
             SizedBox(height: 10,),
-            ListView(
+            Expanded(
+              child:ListView(
               children: [
                 ListTile(
                   title: Text('Getting Started'),
-                  onTap: () {},
+                  onTap: () {}
                 ),
                 ListTile(
                   title: Text('Report Submission'),
                   onTap: () {},
                 )
               ],
-            ),
-            SizedBox(height: 16,),
+            ),),
+            SizedBox(height: 100,),
             Text('Frequently Asked Questions',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -64,13 +80,18 @@ class _HelpState extends State<Help> {
             children: [
               Text("View My Reports' on the homepage to check the status of your submitted reports.")
             ],),
+            SizedBox(height:95),
             Text('Conatct Support'),
             Text('Conatct us or send us your feedback.'),
             ElevatedButton(onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => Contact()
                 ));
-            }, child: Text('Conatct Us'))
+            }, 
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xFF4B0082),
+            ),
+            child: Text('Conatct Us', style: TextStyle(color: Colors.white),))
 
           ],
         ),
