@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
+      backgroundColor: Color(0xFFD8D2CB),
       appBar: AppBar(
         title: const Text("Log In"),
         backgroundColor: Colors.white,
@@ -29,19 +29,6 @@ class _LoginState extends State<Login> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF00FFFF), 
-                    Color(0xFF4169E1), 
-                    Color(0xFF4B0082), 
-                  
-                  ] )
-              ),
-            ),
-          ),
           Container(
             margin: const EdgeInsets.all(20),
             child: Column(
@@ -55,7 +42,7 @@ class _LoginState extends State<Login> {
                       Text(
                         'Welcome Back!',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Color(0xFF2F2F2F),
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
@@ -118,7 +105,7 @@ class _LoginState extends State<Login> {
                 const SizedBox(height: 30),
                 const Text(
                   "Don't have an account?",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color(0xFF2F2F2F)),
                 ),
                 TextButton(
                   onPressed: () {
@@ -128,7 +115,7 @@ class _LoginState extends State<Login> {
                   },
                   child: const Text(
                     'Sign up Here',
-                    style: TextStyle(color: Color(0xFF8FF2F7)),
+                    style: TextStyle(color: Color(0xFF4B0082)),
                   ),
                 ),
               ],
