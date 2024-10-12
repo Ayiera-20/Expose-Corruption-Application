@@ -47,6 +47,7 @@ class _ReportState extends State<Report> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4B0082),
         title: const Text('Submit a report', style: TextStyle(color: Colors.white),),
@@ -57,20 +58,11 @@ class _ReportState extends State<Report> {
         ),
       ),
       body: Container(
-        decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF00FFFF),
-                    Color(0xFF4169E1), 
-                    Color(0xFF4B0082), 
-                    
-                  ] )
-              ),
         child: Padding(padding: const EdgeInsets.only( left: 20, right: 20, top: 30),
         child:  Column(
           children: [
-            Text("Your voice matters! Please use this form to report any incidents of corruption that you have witnessed or experienced. Your submission will remain confidential, and your identity will be protected.",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            Text("Your voice matters! Please use this form to report any incidents of corruption that you have witnessed or experienced. \n Your submission will remain confidential, and your identity will be protected.",
+              style: TextStyle(color: Color(0xFF2F2F2F), fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 50,),
@@ -108,26 +100,35 @@ class _ReportState extends State<Report> {
               ),
             child: Row(
                 children: [
-                  Text(
+                  Padding(padding: EdgeInsets.all(10),
+                  child:   Text(
                     incidentDate == null
                         ? 'Select Incident Date'
                         : 'Incident Date: ${incidentDate!.toLocal()}'.split(' ')[0],
-                  ),
+                  ),),
                   Spacer(),
-                  ElevatedButton(
+                  Padding(padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
                     onPressed: () => _selectDate(context),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF4B0082), 
                     ),
                     child: Text('Pick Date', style: TextStyle(color: Colors.white),),
                   ),
+                  )
+                  
                 ],
               ),),
               SizedBox(height: 16),
               ElevatedButton.icon(
                 onPressed: _pickImage,
                 icon: Icon(Icons.camera_alt),
-                label: Text('Upload Evidence (Photo)'),
+                label: Text('Upload Evidence (Photo)', style: TextStyle(
+                  color: Color(0xFF2F2F2F), fontWeight: FontWeight.bold
+                ),),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFFD8D2CB)
+                ),
               ),
               SizedBox(height: 16),
               _image == null

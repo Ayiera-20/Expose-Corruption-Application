@@ -18,26 +18,14 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
       return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFFD8D2CB),
       appBar: AppBar(
-        title: const Text("Log In"),
+        title: const Text("Sign Up"),
         backgroundColor: Colors.white,
       ),
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF00FFFF), 
-                    Color(0xFF4169E1), 
-                    Color(0xFF4B0082), 
-                  ] )
-              ),
-            ),
-          ),
           Container(
             margin: const EdgeInsets.all(20),
             child: Column(
@@ -51,7 +39,7 @@ class _RegisterState extends State<Register> {
                       Text(
                         'Welcome!',
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Color(0xFF2F2F2F),
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
@@ -114,7 +102,7 @@ class _RegisterState extends State<Register> {
                 const SizedBox(height: 30),
                 const Text(
                   "Already have an account?",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Color(0xFF2F2F2F)),
                 ),
                 TextButton(
                   onPressed: () {
@@ -124,7 +112,7 @@ class _RegisterState extends State<Register> {
                   },
                   child: const Text(
                     'Log in Here',
-                    style: TextStyle(color: Color(0xFF8FF2F7)),
+                    style: TextStyle(color: Color(0xFF4B0082)),
                   ),
                 ),
               ],

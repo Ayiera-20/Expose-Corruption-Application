@@ -41,10 +41,6 @@ class _HomeState extends State<Home> {
         child: Container(
             height: 200,
             width: 500,
-              child: Padding(padding: EdgeInsets.only(left: 5, right: 35, top: 10  ),
-              child: Text("Expose \n Corruption ",
-              style: TextStyle( fontSize: 32, color: Colors.white, fontWeight: FontWeight.bold),),              
-              ),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage("images/living.jpg"),
@@ -56,12 +52,16 @@ class _HomeState extends State<Home> {
                 ),
                 borderRadius: BorderRadius.circular(7)
               ),
+              child: Padding(padding: EdgeInsets.only(left: 5, right: 35, top: 10  ),
+              child: Text("Expose \n Corruption ",
+              style: TextStyle( fontSize: 32, color: Colors.white, fontWeight: FontWeight.bold),),              
+              ),
             ),),
 
         Card(
           elevation: 10,
           color: Color(0xFFD8D2CB),
-          child: Container(
+          child: SizedBox(
             height: 100,
             child: Padding(padding: EdgeInsets.only(left: 35, right: 35, top: 10  ),
               child: Text("Expose Corruption allows you to report corrupt activities in your community safely, securely, and anonymously.",

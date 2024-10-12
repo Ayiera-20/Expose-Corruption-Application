@@ -1,5 +1,4 @@
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
-import 'package:expose_corruption_app/screens/report_details.dart';
 import 'package:flutter/material.dart';
 
 class ReportStatus extends StatelessWidget {
@@ -8,6 +7,7 @@ class ReportStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4B0082),
         title: const Text('Report Status', style: TextStyle(color: Colors.white),),
@@ -22,6 +22,7 @@ class ReportStatus extends StatelessWidget {
         child: Column(
           children: [
             Card(
+              elevation: 5,
               color: Colors.white,
               child: Column(
                   children: [
@@ -70,11 +71,13 @@ class ReportStatus extends StatelessWidget {
                 ),
             ),
             Card(
+              elevation: 5,
               color: Colors.white,
               child: Row(
                 children: [
                   SizedBox(height: 45,),
-                  Text('Progress Bar      ',style: TextStyle(fontWeight: FontWeight.bold)),
+                  Padding(padding: EdgeInsets.only(left: 10),
+                  child: Text('Progress Bar      ',style: TextStyle(fontWeight: FontWeight.bold)),),
                   Text('Under Reviews'),
                   SizedBox(height: 45,)
                 ],
