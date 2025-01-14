@@ -33,7 +33,7 @@ class _HelpState extends State<Help> {
         ]
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
-      body:Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 15),
+      body: Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 15),
         child: Column(
           children: [
             TextField(
@@ -59,7 +59,7 @@ class _HelpState extends State<Help> {
                 )
               ],
             ),),
-            SizedBox(height: 50,),
+            SizedBox(height: 100,),
             Text('Frequently Asked Questions',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -98,7 +98,6 @@ class _HelpState extends State<Help> {
         ),
       
       ),
-      
     );
   }
 }
