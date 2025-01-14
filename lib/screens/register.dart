@@ -18,40 +18,25 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
       return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color(0xFFd8d2cb),
       appBar: AppBar(
-        title: const Text("Log In"),
+        title: const Text("Sign Up"),
         backgroundColor: Colors.white,
       ),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF00FFFF), 
-                    Color(0xFF4169E1), 
-                    Color(0xFF4B0082), 
-                  ] )
-              ),
-            ),
-          ),
-          Container(
+      body: SingleChildScrollView(
+        child: Container(
             margin: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
+                  padding: EdgeInsets.only(left: 20, right: 20, top: 150),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Welcome!',
                         style: TextStyle(
-                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
@@ -114,7 +99,6 @@ class _RegisterState extends State<Register> {
                 const SizedBox(height: 30),
                 const Text(
                   "Already have an account?",
-                  style: TextStyle(color: Colors.white),
                 ),
                 TextButton(
                   onPressed: () {
@@ -124,13 +108,12 @@ class _RegisterState extends State<Register> {
                   },
                   child: const Text(
                     'Log in Here',
-                    style: TextStyle(color: Color(0xFF8FF2F7)),
+                    style: TextStyle(color: Color(0xFF4B0082)),
                   ),
                 ),
               ],
             ),
           ),
-        ],
       ),
     );
   }

@@ -21,46 +21,27 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
+      backgroundColor: Color(0xFFd8d2cb),
       appBar: AppBar(
         title: const Text("Log In"),
         backgroundColor: Colors.white,
       ),
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF00FFFF), 
-                    Color(0xFF4169E1), 
-                    Color(0xFF4B0082), 
-                  
-                  ] )
-              ),
-            ),
-          ),
+      body: SingleChildScrollView(
+        child:
           Container(
             margin: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                  padding: EdgeInsets.only(left: 20, right: 20, top: 150),
+                  child: 
                       Text(
                         'Welcome Back!',
                         style: TextStyle(
-                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
-                    ],
-                  ),
                 ),
                 const SizedBox(height: 30),
                 TextField(
@@ -80,7 +61,7 @@ class _LoginState extends State<Login> {
                 TextField(
                 controller: _passwordController,
                 textAlign: TextAlign.center,
-                obscureText: _obscureText, // Use a variable to toggle password visibility
+                obscureText: _obscureText, 
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -118,7 +99,6 @@ class _LoginState extends State<Login> {
                 const SizedBox(height: 30),
                 const Text(
                   "Don't have an account?",
-                  style: TextStyle(color: Colors.white),
                 ),
                 TextButton(
                   onPressed: () {
@@ -128,13 +108,12 @@ class _LoginState extends State<Login> {
                   },
                   child: const Text(
                     'Sign up Here',
-                    style: TextStyle(color: Color(0xFF8FF2F7)),
+                    style: TextStyle(color: Color(0xFF4B0082)),
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+        ),
       ),
     );
   }
