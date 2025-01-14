@@ -59,7 +59,7 @@ class _HelpState extends State<Help> {
                 )
               ],
             ),),
-            SizedBox(height: 100,),
+            SizedBox(height: 20,),
             Text('Frequently Asked Questions',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -81,7 +81,7 @@ class _HelpState extends State<Help> {
             children: [
               Text("View My Reports' on the homepage to check the status of your submitted reports.")
             ],),
-            SizedBox(height:95),
+            SizedBox(height: 50),
             Text('Conatct Support'),
             Text('Conatct us or send us your feedback.'),
             ElevatedButton(onPressed: () {
