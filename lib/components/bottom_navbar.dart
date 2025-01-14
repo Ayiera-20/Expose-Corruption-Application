@@ -51,7 +51,7 @@ int _currentIndex = 0;
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.help),
-        label: 'Resources',
+        label: 'Help',
       ),
         ],
         onTap: (index) {
