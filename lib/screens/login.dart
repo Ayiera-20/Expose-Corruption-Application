@@ -25,6 +25,7 @@ class _LoginState extends State<Login> {
       appBar: AppBar(
         title: const Text("Log In"),
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child:

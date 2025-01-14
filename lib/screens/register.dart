@@ -22,6 +22,7 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         title: const Text("Sign Up"),
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Container(
