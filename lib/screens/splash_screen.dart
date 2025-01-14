@@ -48,12 +48,13 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       body: AnimatedBuilder(
         animation: _animation,
         builder: (context, child) {
           Color backgroundColor = Color.lerp(
             Color(0xFF4B0082),
-              Color(0xFF4169E1),
+              Color(0xFFD8D2CB),
             _animation.value,
           ) ?? Color(0xFF00FFFF);
 
@@ -96,7 +97,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       'Expose the Corrupt',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Color(0xFF2F2F2F),
                         fontSize: 22,
                       ),
                     ),
