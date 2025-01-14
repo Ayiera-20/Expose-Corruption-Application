@@ -32,7 +32,8 @@ class _HelpState extends State<Help> {
         ]
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
-      body: Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 15),
+      body: SingleChildScrollView(
+        child:Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 15),
         child: Column(
           children: [
             TextField(
@@ -96,6 +97,7 @@ class _HelpState extends State<Help> {
           ],
         ),
       
+      ),
       ),
     );
   }
