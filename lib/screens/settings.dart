@@ -1,4 +1,5 @@
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
+import 'package:expose_corruption_app/screens/login.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -30,6 +31,9 @@ class _SettingsState extends State<Settings> {
             children: [
               ElevatedButton(
                     onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Login(),
+                    ));
                       ();
                     },
                     style: ElevatedButton.styleFrom(
@@ -44,6 +48,7 @@ class _SettingsState extends State<Settings> {
                   SizedBox(width: 5),
               ElevatedButton(
                     onPressed: () {
+                      
                       ();
                     },
                     style: ElevatedButton.styleFrom(
