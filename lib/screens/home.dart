@@ -34,8 +34,9 @@ class _HomeState extends State<Home> {
         ]
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
-      body: Column( children: [
-        Padding(padding: EdgeInsets.only(left: 5, right: 5, bottom: 20, top: 20 ),
+      body:SingleChildScrollView(
+        child:Column( children: [
+        Padding(padding: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 20 ),
         child: Column( children: [
           Text("Corruption is everyone's fight, and with your help, we can make a real difference",
           textAlign: TextAlign.center,
@@ -50,10 +51,10 @@ class _HomeState extends State<Home> {
               ),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage("images/living.jpg"),
+                  image: const AssetImage("assets/images/living.jpg"),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.4),
+                    Colors.black.withOpacity(0.6),
                     BlendMode.darken,
                   ),
                 ),
@@ -66,8 +67,8 @@ class _HomeState extends State<Home> {
         Container(
         decoration: const BoxDecoration(
           borderRadius:BorderRadius.only( 
-            topLeft: Radius.elliptical(50, 50),
-            topRight: Radius.elliptical(50, 50)
+            topLeft: Radius.elliptical(20, 20),
+            topRight: Radius.elliptical(20, 20)
             ),
           gradient: LinearGradient(
             colors: [
@@ -77,10 +78,10 @@ class _HomeState extends State<Home> {
             ] 
           ),                  
         ),
-        child: Padding(padding: const EdgeInsets.only(left: 20, bottom: 131, right: 10,),
+        child: Padding(padding: const EdgeInsets.only(left: 20, bottom: 43, right: 10,),
         child: Column(
           children: [
-            const SizedBox(height: 100,),
+            const SizedBox(height: 50,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [   
@@ -106,11 +107,11 @@ class _HomeState extends State<Home> {
                             
                           ),
                           child: Padding(
-                            padding: EdgeInsets.only( right:80),
+                            padding: EdgeInsets.only( right:100),
                             child: Icon(
                             Icons.edit_document,
                             color:Color(0xFF4B0082), 
-                            size: 80,
+                            size: 50,
                           )
                             ),
 
@@ -149,11 +150,11 @@ class _HomeState extends State<Home> {
                           ),
                           child: Icon(
                             Icons.help,
-                            size: 80,
+                            size: 50,
                             color: Color(0xFF4B0082),
                             ),
                         ),
-                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 40),
+                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
                           child: Text('How to report?', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
 
                         )
@@ -191,10 +192,10 @@ class _HomeState extends State<Home> {
                           child: Icon(
                             Icons.list_alt_rounded,
                             color:Color(0xFF4B0082), 
-                            size: 80,
+                            size: 50,
                             )
                         ),
-                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 40),
+                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
                           child: Text('View my report', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
 
                         )
@@ -226,12 +227,12 @@ class _HomeState extends State<Home> {
                           ),
                           child:Icon(
                             Icons.info,
-                            size: 80,
+                            size: 50,
                             color: Color(0xFF4B0082)
                             )
                           
                         ),
-                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 80),
+                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
                           child: Text('Resources', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
 
                         )
@@ -249,6 +250,8 @@ class _HomeState extends State<Home> {
       ),
   ]
       )
+    )
     );
+      
   }
 }
