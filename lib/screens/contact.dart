@@ -11,6 +11,7 @@ class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4B0082),
         title: const Text('Contact', style: TextStyle(color: Colors.white),),
@@ -20,28 +21,20 @@ class _ContactState extends State<Contact> {
         icon: const Icon(Icons.arrow_back), color: Colors.white,
         ),
       ),
-    body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF4B0082), 
-                    Color(0xFF4169E1), 
-                    Color(0xFF00FFFF), 
-                  ] )
-        ),
-        
+    body: Container(        
       child: SingleChildScrollView(
       child: Column( 
         children: [
           Padding(padding: const EdgeInsets.only(left: 16, right: 16, top: 60, bottom: 30),
             child: Card(
+              elevation: 10,
               color: Colors.white,
-              elevation: 5,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height:20),
-                const Text('Send us a message or your feedback'),
+                const Text('Send us a message or your feedback', style: TextStyle(
+                  fontWeight: FontWeight.bold, color: Color(0xFF2F2F2F)),),
                 const SizedBox(height: 16,),
                 const Text('Name'),
                 const SizedBox(height: 8,),
@@ -108,7 +101,7 @@ class _ContactState extends State<Contact> {
                 padding: EdgeInsets.only(left: 16.0, right: 16, top: 5, bottom: 185),
                 child: Card(
                   color: Colors.white,
-                  elevation: 5,
+                  elevation: 10,
                   child: Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Column(
@@ -117,7 +110,7 @@ class _ContactState extends State<Contact> {
                         Text(
                           'Contact Info',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 18),
+                              fontWeight: FontWeight.bold, fontSize: 18, color: Color(0xFF2F2F2F)),
                         ),
                         SizedBox(height: 8),
                         Text('Location: Nairobi, Kenya'),
