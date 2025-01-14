@@ -56,24 +56,25 @@ class _ReportState extends State<Report> {
         icon: Icon(Icons.arrow_back), color: Colors.white,
         ),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF00FFFF),
-                    Color(0xFF4169E1), 
-                    Color(0xFF4B0082), 
+      body: SingleChildScrollView(
+        child:Container(
+        // decoration: const BoxDecoration(
+        //         gradient: LinearGradient(
+        //           colors: [
+        //             Color(0xFF00FFFF),
+        //             Color(0xFF4169E1), 
+        //             Color(0xFF4B0082), 
                     
-                  ] )
-              ),
+        //           ] )
+        //       ),
         child: Padding(padding: const EdgeInsets.only( left: 20, right: 20, top: 30),
         child:  Column(
           children: [
             Text("Your voice matters! Please use this form to report any incidents of corruption that you have witnessed or experienced. Your submission will remain confidential, and your identity will be protected.",
-              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 20,),
             const TextField(
               maxLines: 5,
               decoration: InputDecoration(
@@ -108,26 +109,32 @@ class _ReportState extends State<Report> {
               ),
             child: Row(
                 children: [
-                  Text(
+                  Padding(padding: const EdgeInsets.only( left: 20),
+                  child: Text(
                     incidentDate == null
                         ? 'Select Incident Date'
                         : 'Incident Date: ${incidentDate!.toLocal()}'.split(' ')[0],
-                  ),
+                  ),),
                   Spacer(),
-                  ElevatedButton(
+                  Padding(padding: const EdgeInsets.only( left: 20, top: 10),
+                  child: ElevatedButton(
                     onPressed: () => _selectDate(context),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF4B0082), 
                     ),
                     child: Text('Pick Date', style: TextStyle(color: Colors.white),),
-                  ),
+                  ),),
                 ],
               ),),
               SizedBox(height: 16),
               ElevatedButton.icon(
                 onPressed: _pickImage,
                 icon: Icon(Icons.camera_alt),
-                label: Text('Upload Evidence (Photo)'),
+                label: Text('Upload Evidence (Photo)', 
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFFd8d2cb)
+                ),
               ),
               SizedBox(height: 16),
               _image == null
@@ -153,6 +160,7 @@ class _ReportState extends State<Report> {
           ],
         ),
         ),
+      ),
       ),
     );
   }
