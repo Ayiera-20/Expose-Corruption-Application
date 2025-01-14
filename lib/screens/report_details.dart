@@ -1,6 +1,5 @@
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ReportDetails extends StatefulWidget {
   const ReportDetails({super.key});
@@ -13,6 +12,7 @@ class _ReportDetailsState extends State<ReportDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4B0082),
         title: const Text('Report Details', style: TextStyle(color: Colors.white),),

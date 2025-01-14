@@ -69,10 +69,17 @@ packages:
     dependency: transitive
     description:
       name: file_selector_linux
+<<<<<<< HEAD
       sha256: "54cbbd957e1156d29548c7d9b9ec0c0ebb6de0a90452198683a7d23aed617a33"
       url: "https://pub.dev"
     source: hosted
     version: "0.9.3+2"
+=======
+      sha256: "712ce7fab537ba532c8febdb1a8f167b32441e74acd68c3ccb2e36dcb52c4ab2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.9.3"
+>>>>>>> 701cfc5a3a2573706213280983e9d309f06c0b59
   file_selector_macos:
     dependency: transitive
     description:
@@ -114,10 +121,17 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
+<<<<<<< HEAD
       sha256: "615a505aef59b151b46bbeef55b36ce2b6ed299d160c51d84281946f0aa0ce0e"
       url: "https://pub.dev"
     source: hosted
     version: "2.0.24"
+=======
+      sha256: "9b78450b89f059e96c9ebb355fa6b3df1d6b330436e0b885fb49594c41721398"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.23"
+>>>>>>> 701cfc5a3a2573706213280983e9d309f06c0b59
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -156,10 +170,17 @@ packages:
     dependency: transitive
     description:
       name: image_picker_android
+<<<<<<< HEAD
       sha256: b62d34a506e12bb965e824b6db4fbf709ee4589cf5d3e99b45ab2287b008ee0c
       url: "https://pub.dev"
     source: hosted
     version: "0.8.12+20"
+=======
+      sha256: d3e5e00fdfeca8fd4ffb3227001264d449cc8950414c2ff70b0e06b9c628e643
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.12+15"
+>>>>>>> 701cfc5a3a2573706213280983e9d309f06c0b59
   image_picker_for_web:
     dependency: transitive
     description:
@@ -236,10 +257,17 @@ packages:
     dependency: transitive
     description:
       name: lints
+<<<<<<< HEAD
       sha256: c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+=======
+      sha256: "3315600f3fb3b135be672bf4a178c55f274bebe368325ae18462c89ac1e3b413"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.0"
+>>>>>>> 701cfc5a3a2573706213280983e9d309f06c0b59
   matcher:
     dependency: transitive
     description:

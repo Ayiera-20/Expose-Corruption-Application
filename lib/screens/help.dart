@@ -15,6 +15,7 @@ class _HelpState extends State<Help> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4B0082),
         title: const Text('Help and FAQ', style: TextStyle(color: Colors.white),),
@@ -32,8 +33,7 @@ class _HelpState extends State<Help> {
         ]
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
-      body: SingleChildScrollView(
-        child:Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 15),
+      body:Padding(padding: EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 15),
         child: Column(
           children: [
             TextField(
@@ -59,7 +59,7 @@ class _HelpState extends State<Help> {
                 )
               ],
             ),),
-            SizedBox(height: 100,),
+            SizedBox(height: 50,),
             Text('Frequently Asked Questions',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -98,7 +98,7 @@ class _HelpState extends State<Help> {
         ),
       
       ),
-      ),
+      
     );
   }
 }

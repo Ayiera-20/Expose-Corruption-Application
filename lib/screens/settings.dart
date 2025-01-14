@@ -1,4 +1,5 @@
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
+import 'package:expose_corruption_app/screens/login.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -12,6 +13,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4B0082),
         title: const Text('Settings', style: TextStyle(color: Colors.white),),
@@ -29,6 +31,9 @@ class _SettingsState extends State<Settings> {
             children: [
               ElevatedButton(
                     onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Login(),
+                    ));
                       ();
                     },
                     style: ElevatedButton.styleFrom(
@@ -36,13 +41,14 @@ class _SettingsState extends State<Settings> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      minimumSize: const Size(100, 50),
+                      minimumSize: const Size(60, 40),
                     ),
-                    child: const Text('SIGN OUT', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),),
+                    child: const Text('SIGN OUT', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),),
                   ),
                   SizedBox(width: 5),
               ElevatedButton(
                     onPressed: () {
+                      
                       ();
                     },
                     style: ElevatedButton.styleFrom(
@@ -50,20 +56,30 @@ class _SettingsState extends State<Settings> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      minimumSize: const Size(100, 50),
+                      minimumSize: const Size(80, 40),
                     ),
-                    child: const Text('DELETE ACCOUNT', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),),
+                    child: const Text('DELETE ACCOUNT', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),),
                 ),
             ],
           ),),
           SizedBox(height: 50,),
           CircleAvatar(
-            radius: 80,
+            radius: 60,
             child: Text('MA'),),
             SizedBox(height: 10,),
-          Text('email'),
+            Card(
+              elevation: 5,
+              color: Colors.white,
+              child:Padding(padding: EdgeInsets.all(10),
+              child: Text('Email address'),
+            )),
           SizedBox(height: 20,),
-          Text('Number of submitted Reports: ')
+          Card(
+            color: Colors.white,
+            elevation: 5,
+            child:Padding(padding: EdgeInsets.all(10),
+            child: Text('Number of submitted Reports: '),)
+          )
         ],
       ),
     );
