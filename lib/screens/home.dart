@@ -1,3 +1,4 @@
+
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
 import 'package:expose_corruption_app/screens/help.dart';
 import 'package:expose_corruption_app/screens/login.dart';
@@ -17,9 +18,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF4F4F9),
       appBar: AppBar(
         backgroundColor: const Color(0xFF4B0082),
         title: const Text('Home', style: TextStyle(color: Colors.white),),
+        automaticallyImplyLeading: false,
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
           IconButton(
@@ -34,54 +37,48 @@ class _HomeState extends State<Home> {
         ]
       ),
       bottomNavigationBar: MyBottomNavigationBar(),
-      body:SingleChildScrollView(
-        child:Column( children: [
-        Padding(padding: EdgeInsets.only(left: 10, right: 10, bottom: 20, top: 20 ),
+      body: SingleChildScrollView(
         child: Column( children: [
-          Text("Corruption is everyone's fight, and with your help, we can make a real difference",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold),),
-        SizedBox(height: 10,),
+        
         Card(
         child: Container(
-            height: 150,
-              child: Padding(padding: EdgeInsets.only(left: 5, right: 35, top: 10  ),
-              child: Text("ExposeCorruption allows you to report corrupt activities in your community safely, securely, and anonymously.",
-              style: TextStyle( fontSize: 16, color: Colors.white,),),              
-              ),
+            height: 200,
+            width: 500,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage("assets/images/living.jpg"),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.6),
+                    Colors.black.withOpacity(0.5),
                     BlendMode.darken,
                   ),
                 ),
-                borderRadius: BorderRadius.circular(10)
+                borderRadius: BorderRadius.circular(7)
+              ),
+              child: Padding(padding: EdgeInsets.only(left: 5, right: 35, top: 10  ),
+              child: Text("Expose \n Corruption ",
+              style: TextStyle( fontSize: 32, color: Colors.white, fontWeight: FontWeight.bold),),              
               ),
             ),),
-            ],)
-        ),
 
-        Container(
-        decoration: const BoxDecoration(
-          borderRadius:BorderRadius.only( 
-            topLeft: Radius.elliptical(20, 20),
-            topRight: Radius.elliptical(20, 20)
-            ),
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF00FFFF), 
-              Color(0xFF4169E1), 
-              Color(0xFF4B0082),
-            ] 
-          ),                  
+        Card(
+          elevation: 10,
+          color: Color(0xFFD8D2CB),
+          child: SizedBox(
+            height: 100,
+            child: Padding(padding: EdgeInsets.only(left: 35, right: 35, top: 10  ),
+              child: Text("Expose Corruption allows you to report corrupt activities in your community safely, securely, and anonymously.",
+              style: TextStyle( fontSize: 14, color: Color(0xFF2F2F2F), fontWeight: FontWeight.bold),),              
+              ),
+
+          ),
         ),
-        child: Padding(padding: const EdgeInsets.only(left: 20, bottom: 43, right: 10,),
+        SizedBox(height: 10),
+        Container(
+        child: Padding(padding: const EdgeInsets.only(left: 20, bottom: 10, right: 20,),
         child: Column(
           children: [
-            const SizedBox(height: 50,),
+            const SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [   
@@ -94,12 +91,13 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: Card(
+                    elevation: 10,
                     color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          width: 2,
+                          width: 50,
                           height: 100,
                           decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
@@ -107,19 +105,16 @@ class _HomeState extends State<Home> {
                             
                           ),
                           child: Padding(
-                            padding: EdgeInsets.only( right:100),
+                            padding: EdgeInsets.only( right:80),
                             child: Icon(
                             Icons.edit_document,
                             color:Color(0xFF4B0082), 
-                            size: 50,
+                            size: 60,
                           )
                             ),
-
-                          
-                          
                         ),
                         const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('Report corruption', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                          child: Text('Report Corruption', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
 
                         )
                       ],
@@ -136,6 +131,7 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: Card(
+                    elevation: 10,
                     color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -148,14 +144,17 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(7)
                             
                           ),
-                          child: Icon(
+                          child: Padding(
+                            padding: EdgeInsets.only( right:50),
+                            child: Icon(
                             Icons.help,
-                            size: 50,
-                            color: Color(0xFF4B0082),
-                            ),
+                            color:Color(0xFF4B0082), 
+                            size: 60,
+                          )
+                          ),
                         ),
                         const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('How to report?', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                          child: Text('How to report?', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
 
                         )
                       ],
@@ -177,6 +176,7 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: Card(
+                    elevation: 10,
                     color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -189,14 +189,17 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(7)
                             
                           ),
-                          child: Icon(
+                          child: Padding(
+                            padding: EdgeInsets.only( right:100),
+                            child: Icon(
                             Icons.list_alt_rounded,
                             color:Color(0xFF4B0082), 
-                            size: 50,
-                            )
+                            size: 60,
+                          )
+                            ),
                         ),
                         const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('View my report', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                          child: Text('View reports', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
 
                         )
                       ],
@@ -213,12 +216,13 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: Card(
+                    elevation: 10,
                     color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          width: 4,
+                          width: 50,
                           height: 100,
                           decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
@@ -227,13 +231,13 @@ class _HomeState extends State<Home> {
                           ),
                           child:Icon(
                             Icons.info,
-                            size: 50,
+                            size: 60,
                             color: Color(0xFF4B0082)
                             )
                           
                         ),
                         const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('Resources', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                          child: Text('Resources', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
 
                         )
                       ],
@@ -249,9 +253,8 @@ class _HomeState extends State<Home> {
 
       ),
   ]
-      )
-    )
+      ),
+      ),
     );
-      
   }
 }
