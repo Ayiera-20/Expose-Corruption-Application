@@ -46,7 +46,8 @@ class ReportStatus extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                             color: AppTheme.warningColor.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
+                            borderRadius:
+                                BorderRadius.circular(AppTheme.radiusSmall),
                           ),
                           child: const Text(
                             'Under Review',
@@ -176,9 +177,8 @@ class ReportStatus extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(AppTheme.spacing8),
               decoration: BoxDecoration(
-                color: isCompleted
-                    ? AppTheme.successColor
-                    : AppTheme.dividerColor,
+                color:
+                    isCompleted ? AppTheme.successColor : AppTheme.dividerColor,
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -191,9 +191,8 @@ class ReportStatus extends StatelessWidget {
               Container(
                 width: 2,
                 height: 60,
-                color: isCompleted
-                    ? AppTheme.successColor
-                    : AppTheme.dividerColor,
+                color:
+                    isCompleted ? AppTheme.successColor : AppTheme.dividerColor,
               ),
           ],
         ),

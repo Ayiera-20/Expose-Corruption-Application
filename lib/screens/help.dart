@@ -173,7 +173,8 @@ class _HelpState extends State<Help> {
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => const Contact()),
+                          MaterialPageRoute(
+                              builder: (context) => const Contact()),
                         );
                       },
                       style: ElevatedButton.styleFrom(

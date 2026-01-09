@@ -97,7 +97,8 @@ class _SettingsState extends State<Settings> {
 
             // Statistics
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
               child: Row(
                 children: [
                   Expanded(
@@ -118,7 +119,8 @@ class _SettingsState extends State<Settings> {
 
             // Account Settings
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -218,7 +220,8 @@ class _SettingsState extends State<Settings> {
                     padding: const EdgeInsets.all(AppTheme.spacing20),
                     decoration: BoxDecoration(
                       color: AppTheme.errorColor.withOpacity(0.05),
-                      borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                      borderRadius:
+                          BorderRadius.circular(AppTheme.radiusMedium),
                       border: Border.all(
                         color: AppTheme.errorColor.withOpacity(0.2),
                       ),

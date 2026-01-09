@@ -5,23 +5,23 @@ class AppTheme {
   static const Color primaryColor = Color(0xFF6C63FF); // Modern purple
   static const Color primaryDark = Color(0xFF4B42D4);
   static const Color primaryLight = Color(0xFF8B84FF);
-  
+
   static const Color accentColor = Color(0xFF00D9FF); // Cyan accent
   static const Color accentLight = Color(0xFF5CE1E6);
-  
+
   static const Color backgroundColor = Color(0xFFF8F9FE);
   static const Color surfaceColor = Color(0xFFFFFFFF);
   static const Color cardColor = Color(0xFFFFFFFF);
-  
+
   static const Color textPrimary = Color(0xFF2D3142);
   static const Color textSecondary = Color(0xFF6B7280);
   static const Color textLight = Color(0xFF9CA3AF);
-  
+
   static const Color successColor = Color(0xFF10B981);
   static const Color warningColor = Color(0xFFF59E0B);
   static const Color errorColor = Color(0xFFEF4444);
   static const Color infoColor = Color(0xFF3B82F6);
-  
+
   static const Color dividerColor = Color(0xFFE5E7EB);
   static const Color shadowColor = Color(0x1A000000);
 
@@ -152,7 +152,7 @@ class AppTheme {
         error: errorColor,
       ),
       scaffoldBackgroundColor: backgroundColor,
-      
+
       // AppBar Theme
       appBarTheme: const AppBarTheme(
         elevation: 0,
@@ -166,7 +166,7 @@ class AppTheme {
         ),
         iconTheme: IconThemeData(color: Colors.white),
       ),
-      
+
       // Card Theme
       cardTheme: CardThemeData(
         elevation: 0,
@@ -176,7 +176,7 @@ class AppTheme {
         ),
         shadowColor: shadowColor,
       ),
-      
+
       // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -202,7 +202,7 @@ class AppTheme {
           vertical: spacing16,
         ),
       ),
-      
+
       // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -219,7 +219,7 @@ class AppTheme {
           textStyle: button,
         ),
       ),
-      
+
       // Text Button Theme
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -227,13 +227,13 @@ class AppTheme {
           textStyle: button,
         ),
       ),
-      
+
       // Icon Theme
       iconTheme: const IconThemeData(
         color: textPrimary,
         size: 24,
       ),
-      
+
       // Bottom Navigation Bar Theme
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: surfaceColor,
@@ -243,14 +243,14 @@ class AppTheme {
         elevation: 8,
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
       ),
-      
+
       // Divider Theme
       dividerTheme: const DividerThemeData(
         color: dividerColor,
         thickness: 1,
         space: 1,
       ),
-      
+
       // Text Theme
       textTheme: const TextTheme(
         displayLarge: h1,

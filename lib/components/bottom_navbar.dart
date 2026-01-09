@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
-  
+
   const MyBottomNavigationBar({
     super.key,
     this.currentIndex = 0,
@@ -69,14 +69,17 @@ class MyBottomNavigationBar extends StatelessWidget {
           ),
         ],
         onTap: (index) {
-          if (index == currentIndex) return; // Don't navigate if already on the page
-          
+          if (index == currentIndex)
+            return; // Don't navigate if already on the page
+
           if (index == 0) {
             // Go back to Home, pop all routes until Home
             Navigator.of(context).pushAndRemoveUntil(
               PageRouteBuilder(
-                pageBuilder: (context, animation, secondaryAnimation) => const Home(),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    const Home(),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
                   return FadeTransition(opacity: animation, child: child);
                 },
                 transitionDuration: const Duration(milliseconds: 300),

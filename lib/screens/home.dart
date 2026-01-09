@@ -1,4 +1,3 @@
-
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
 import 'package:expose_corruption_app/screens/help.dart';
 import 'package:expose_corruption_app/screens/report.dart';
@@ -153,7 +152,8 @@ class _HomeState extends State<Home> {
 
             // Stats Cards
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
               child: Row(
                 children: [
                   Expanded(
@@ -180,7 +180,8 @@ class _HomeState extends State<Home> {
 
             // Quick Actions Section
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -197,11 +198,15 @@ class _HomeState extends State<Home> {
                           icon: Icons.edit_document,
                           title: 'Report\nCorruption',
                           gradient: const LinearGradient(
-                            colors: [AppTheme.primaryColor, AppTheme.primaryLight],
+                            colors: [
+                              AppTheme.primaryColor,
+                              AppTheme.primaryLight
+                            ],
                           ),
                           onTap: () {
                             Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => const Report()),
+                              MaterialPageRoute(
+                                  builder: (context) => const Report()),
                             );
                           },
                         ),
@@ -213,11 +218,15 @@ class _HomeState extends State<Home> {
                           icon: Icons.list_alt_rounded,
                           title: 'View\nReports',
                           gradient: const LinearGradient(
-                            colors: [AppTheme.accentColor, AppTheme.accentLight],
+                            colors: [
+                              AppTheme.accentColor,
+                              AppTheme.accentLight
+                            ],
                           ),
                           onTap: () {
                             Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => const ReportDetails()),
+                              MaterialPageRoute(
+                                  builder: (context) => const ReportDetails()),
                             );
                           },
                         ),
@@ -237,7 +246,8 @@ class _HomeState extends State<Home> {
                           ),
                           onTap: () {
                             Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => const ReportStatus()),
+                              MaterialPageRoute(
+                                  builder: (context) => const ReportStatus()),
                             );
                           },
                         ),
@@ -253,7 +263,8 @@ class _HomeState extends State<Home> {
                           ),
                           onTap: () {
                             Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => const Help()),
+                              MaterialPageRoute(
+                                  builder: (context) => const Help()),
                             );
                           },
                         ),
@@ -267,7 +278,8 @@ class _HomeState extends State<Home> {
 
             // Resources Section
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -279,7 +291,8 @@ class _HomeState extends State<Home> {
                   _buildResourceCard(
                     icon: Icons.info_outline,
                     title: 'Understanding Corruption',
-                    description: 'Learn about different types of corruption and how to identify them',
+                    description:
+                        'Learn about different types of corruption and how to identify them',
                     onTap: () {
                       // Navigate to resources
                     },
@@ -288,7 +301,8 @@ class _HomeState extends State<Home> {
                   _buildResourceCard(
                     icon: Icons.security_outlined,
                     title: 'Your Rights & Protection',
-                    description: 'Information about whistleblower protection and your legal rights',
+                    description:
+                        'Information about whistleblower protection and your legal rights',
                     onTap: () {
                       // Navigate to resources
                     },

@@ -15,7 +15,8 @@ class _RegisterState extends State<Register> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -66,7 +67,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     const SizedBox(height: AppTheme.spacing32),
-                    
+
                     // Registration Card
                     Container(
                       padding: const EdgeInsets.all(AppTheme.spacing24),
@@ -89,7 +90,7 @@ class _RegisterState extends State<Register> {
                             },
                           ),
                           const SizedBox(height: AppTheme.spacing20),
-                          
+
                           // Email Field
                           TextFormField(
                             controller: _emailController,
@@ -110,7 +111,7 @@ class _RegisterState extends State<Register> {
                             },
                           ),
                           const SizedBox(height: AppTheme.spacing20),
-                          
+
                           // Password Field
                           TextFormField(
                             controller: _passwordController,
@@ -121,7 +122,9 @@ class _RegisterState extends State<Register> {
                               prefixIcon: const Icon(Icons.lock_outline),
                               suffixIcon: IconButton(
                                 icon: Icon(
-                                  _obscureText ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                                  _obscureText
+                                      ? Icons.visibility_outlined
+                                      : Icons.visibility_off_outlined,
                                 ),
                                 onPressed: () {
                                   setState(() {
@@ -141,7 +144,7 @@ class _RegisterState extends State<Register> {
                             },
                           ),
                           const SizedBox(height: AppTheme.spacing20),
-                          
+
                           // Confirm Password Field
                           TextFormField(
                             controller: _confirmPasswordController,
@@ -152,7 +155,9 @@ class _RegisterState extends State<Register> {
                               prefixIcon: const Icon(Icons.lock_outline),
                               suffixIcon: IconButton(
                                 icon: Icon(
-                                  _obscureConfirmText ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                                  _obscureConfirmText
+                                      ? Icons.visibility_outlined
+                                      : Icons.visibility_off_outlined,
                                 ),
                                 onPressed: () {
                                   setState(() {
@@ -172,21 +177,23 @@ class _RegisterState extends State<Register> {
                             },
                           ),
                           const SizedBox(height: AppTheme.spacing32),
-                          
+
                           // Sign Up Button
                           Container(
                             width: double.infinity,
                             height: 56,
                             decoration: BoxDecoration(
                               gradient: AppTheme.primaryGradient,
-                              borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                              borderRadius:
+                                  BorderRadius.circular(AppTheme.radiusMedium),
                               boxShadow: AppTheme.buttonShadow,
                             ),
                             child: ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(builder: (context) => const Login()),
+                                    MaterialPageRoute(
+                                        builder: (context) => const Login()),
                                   );
                                 }
                               },
@@ -194,7 +201,8 @@ class _RegisterState extends State<Register> {
                                 backgroundColor: Colors.transparent,
                                 shadowColor: Colors.transparent,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                                  borderRadius: BorderRadius.circular(
+                                      AppTheme.radiusMedium),
                                 ),
                               ),
                               child: const Text(
@@ -211,7 +219,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     const SizedBox(height: AppTheme.spacing24),
-                    
+
                     // Sign In Link
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

@@ -105,7 +105,8 @@ class _ContactState extends State<Contact> {
                             },
                           ),
                           const SizedBox(height: AppTheme.spacing20),
-                          const Text('Email Address', style: AppTheme.subtitle1),
+                          const Text('Email Address',
+                              style: AppTheme.subtitle1),
                           const SizedBox(height: AppTheme.spacing8),
                           TextFormField(
                             controller: _emailController,
@@ -147,7 +148,8 @@ class _ContactState extends State<Contact> {
                             height: 56,
                             decoration: BoxDecoration(
                               gradient: AppTheme.primaryGradient,
-                              borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                              borderRadius:
+                                  BorderRadius.circular(AppTheme.radiusMedium),
                               boxShadow: AppTheme.buttonShadow,
                             ),
                             child: ElevatedButton(
@@ -155,7 +157,8 @@ class _ContactState extends State<Contact> {
                                 if (_formKey.currentState!.validate()) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content: Text('Message sent successfully!'),
+                                      content:
+                                          Text('Message sent successfully!'),
                                       backgroundColor: AppTheme.successColor,
                                     ),
                                   );
@@ -166,7 +169,8 @@ class _ContactState extends State<Contact> {
                                 backgroundColor: Colors.transparent,
                                 shadowColor: Colors.transparent,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                                  borderRadius: BorderRadius.circular(
+                                      AppTheme.radiusMedium),
                                 ),
                               ),
                               child: const Text(

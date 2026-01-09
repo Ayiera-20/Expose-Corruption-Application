@@ -125,7 +125,8 @@ class _ReportState extends State<Report> {
                 const Text('Report Category', style: AppTheme.subtitle1),
                 const SizedBox(height: AppTheme.spacing8),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: AppTheme.spacing16),
                   decoration: BoxDecoration(
                     color: AppTheme.surfaceColor,
                     borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
@@ -159,7 +160,8 @@ class _ReportState extends State<Report> {
                   controller: _descriptionController,
                   maxLines: 5,
                   decoration: const InputDecoration(
-                    hintText: 'Provide a detailed description of the corruption incident...',
+                    hintText:
+                        'Provide a detailed description of the corruption incident...',
                     alignLabelWithHint: true,
                   ),
                   validator: (value) {
@@ -216,23 +218,28 @@ class _ReportState extends State<Report> {
                     padding: const EdgeInsets.all(AppTheme.spacing16),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceColor,
-                      borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                      borderRadius:
+                          BorderRadius.circular(AppTheme.radiusMedium),
                       border: Border.all(color: AppTheme.dividerColor),
                     ),
                     child: Row(
                       children: [
-                        const Icon(Icons.calendar_today_outlined, color: AppTheme.textSecondary),
+                        const Icon(Icons.calendar_today_outlined,
+                            color: AppTheme.textSecondary),
                         const SizedBox(width: AppTheme.spacing12),
                         Text(
                           incidentDate == null
                               ? 'Select incident date'
                               : '${incidentDate!.day}/${incidentDate!.month}/${incidentDate!.year}',
                           style: AppTheme.body1.copyWith(
-                            color: incidentDate == null ? AppTheme.textLight : AppTheme.textPrimary,
+                            color: incidentDate == null
+                                ? AppTheme.textLight
+                                : AppTheme.textPrimary,
                           ),
                         ),
                         const Spacer(),
-                        const Icon(Icons.arrow_forward_ios, size: 16, color: AppTheme.textLight),
+                        const Icon(Icons.arrow_forward_ios,
+                            size: 16, color: AppTheme.textLight),
                       ],
                     ),
                   ),
@@ -248,7 +255,8 @@ class _ReportState extends State<Report> {
                     padding: const EdgeInsets.all(AppTheme.spacing20),
                     decoration: BoxDecoration(
                       color: AppTheme.surfaceColor,
-                      borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                      borderRadius:
+                          BorderRadius.circular(AppTheme.radiusMedium),
                       border: Border.all(
                         color: AppTheme.dividerColor,
                         style: BorderStyle.solid,
@@ -280,7 +288,8 @@ class _ReportState extends State<Report> {
                   Container(
                     height: 200,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                      borderRadius:
+                          BorderRadius.circular(AppTheme.radiusMedium),
                       image: DecorationImage(
                         image: FileImage(_image!),
                         fit: BoxFit.cover,
@@ -325,7 +334,8 @@ class _ReportState extends State<Report> {
                       backgroundColor: Colors.transparent,
                       shadowColor: Colors.transparent,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+                        borderRadius:
+                            BorderRadius.circular(AppTheme.radiusMedium),
                       ),
                     ),
                     child: const Text(
