@@ -1,10 +1,11 @@
 
 import 'package:expose_corruption_app/components/bottom_navbar.dart';
 import 'package:expose_corruption_app/screens/help.dart';
-import 'package:expose_corruption_app/screens/login.dart';
 import 'package:expose_corruption_app/screens/report.dart';
 import 'package:expose_corruption_app/screens/report_details.dart';
+import 'package:expose_corruption_app/screens/report_status.dart';
 import 'package:expose_corruption_app/screens/settings.dart';
+import 'package:expose_corruption_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -18,242 +19,417 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF4F4F9),
+      backgroundColor: AppTheme.backgroundColor,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF4B0082),
-        title: const Text('Home', style: TextStyle(color: Colors.white),),
-        automaticallyImplyLeading: false,
-        iconTheme: const IconThemeData(color: Colors.white),
-        actions: [
-          IconButton(
-            onPressed: () {}, 
-          icon: const Icon(Icons.notification_add)),
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => Settings() ));
-            }, 
-          icon: const Icon(Icons.settings))
-        ]
-      ),
-      bottomNavigationBar: MyBottomNavigationBar(),
-      body: SingleChildScrollView(
-        child: Column( children: [
-        
-        Card(
-        child: Container(
-            height: 200,
-            width: 500,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: const AssetImage("assets/images/living.jpg"),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                    Colors.black.withOpacity(0.5),
-                    BlendMode.darken,
-                  ),
-                ),
-                borderRadius: BorderRadius.circular(7)
-              ),
-              child: Padding(padding: EdgeInsets.only(left: 5, right: 35, top: 10  ),
-              child: Text("Expose \n Corruption ",
-              style: TextStyle( fontSize: 32, color: Colors.white, fontWeight: FontWeight.bold),),              
-              ),
-            ),),
-
-        Card(
-          elevation: 10,
-          color: Color(0xFFD8D2CB),
-          child: SizedBox(
-            height: 100,
-            child: Padding(padding: EdgeInsets.only(left: 35, right: 35, top: 10  ),
-              child: Text("Expose Corruption allows you to report corrupt activities in your community safely, securely, and anonymously.",
-              style: TextStyle( fontSize: 14, color: Color(0xFF2F2F2F), fontWeight: FontWeight.bold),),              
-              ),
-
+        elevation: 0,
+        backgroundColor: AppTheme.primaryColor,
+        title: const Text(
+          'Expose Corruption',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 10),
-        Container(
-        child: Padding(padding: const EdgeInsets.only(left: 20, bottom: 10, right: 20,),
-        child: Column(
-          children: [
-            const SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [   
-                Expanded(
-                  child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Report()
-                      )
-                    );
-                  },
-                  child: Card(
-                    elevation: 10,
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 50,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(7)
-                            
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only( right:80),
-                            child: Icon(
-                            Icons.edit_document,
-                            color:Color(0xFF4B0082), 
-                            size: 60,
-                          )
-                            ),
-                        ),
-                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('Report Corruption', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-
-                        )
-                      ],
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Stack(
+              children: [
+                const Icon(Icons.notifications_outlined, color: Colors.white),
+                Positioned(
+                  right: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: const BoxDecoration(
+                      color: AppTheme.errorColor,
+                      shape: BoxShape.circle,
+                    ),
+                    constraints: const BoxConstraints(
+                      minWidth: 16,
+                      minHeight: 16,
+                    ),
+                    child: const Text(
+                      '3',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                ),),
-
-                Expanded(
-                  child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Help()
-                      )
-                    );
-                  },
-                  child: Card(
-                    elevation: 10,
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 2,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(7)
-                            
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only( right:50),
-                            child: Icon(
-                            Icons.help,
-                            color:Color(0xFF4B0082), 
-                            size: 60,
-                          )
-                          ),
-                        ),
-                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('How to report?', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-
-                        )
-                      ],
-                    ),
-                  ),
-                ))
-
+                ),
               ],
             ),
-            const SizedBox(height: 20),
-            Row(
-              children: [                
-                Expanded(child: 
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ReportDetails()
-                      )
-                    );
-                  },
-                  child: Card(
-                    elevation: 10,
-                    color: Colors.white,
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const Settings()),
+              );
+            },
+            icon: const Icon(Icons.settings_outlined, color: Colors.white),
+          ),
+        ],
+      ),
+      bottomNavigationBar: const MyBottomNavigationBar(currentIndex: 0),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Hero Banner
+            Container(
+              margin: const EdgeInsets.all(AppTheme.spacing16),
+              height: 200,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [AppTheme.primaryColor, AppTheme.primaryDark],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+                boxShadow: AppTheme.cardShadow,
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    right: -30,
+                    top: -30,
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.1),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: -20,
+                    bottom: -20,
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.1),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(AppTheme.spacing24),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 2,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(7)
-                            
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only( right:100),
-                            child: Icon(
-                            Icons.list_alt_rounded,
-                            color:Color(0xFF4B0082), 
-                            size: 60,
-                          )
-                            ),
+                        const Icon(
+                          Icons.shield_outlined,
+                          color: Colors.white,
+                          size: 40,
                         ),
-                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('View reports', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
-
-                        )
+                        const SizedBox(height: AppTheme.spacing12),
+                        const Text(
+                          'Expose Corruption',
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: AppTheme.spacing8),
+                        Text(
+                          'Report corruption safely, securely, and anonymously',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white.withOpacity(0.9),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ),),
+                ],
+              ),
+            ),
 
-                Expanded(
-                  child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Login()
-                      )
-                    );
-                  },
-                  child: Card(
-                    elevation: 10,
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 50,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(7)
-                            
-                          ),
-                          child:Icon(
-                            Icons.info,
-                            size: 60,
-                            color: Color(0xFF4B0082)
-                            )
-                          
-                        ),
-                        const Padding(padding: EdgeInsets.only(left: 20, bottom: 20, right: 10),
-                          child: Text('Resources', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-
-                        )
-                      ],
+            // Stats Cards
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: _buildStatCard(
+                      icon: Icons.report_outlined,
+                      label: 'Total Reports',
+                      value: '1,234',
+                      color: AppTheme.infoColor,
                     ),
                   ),
-                ),)
+                  const SizedBox(width: AppTheme.spacing12),
+                  Expanded(
+                    child: _buildStatCard(
+                      icon: Icons.check_circle_outline,
+                      label: 'Resolved',
+                      value: '856',
+                      color: AppTheme.successColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: AppTheme.spacing24),
 
-              ],
-            )
+            // Quick Actions Section
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Quick Actions',
+                    style: AppTheme.h3,
+                  ),
+                  const SizedBox(height: AppTheme.spacing16),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildActionCard(
+                          context: context,
+                          icon: Icons.edit_document,
+                          title: 'Report\nCorruption',
+                          gradient: const LinearGradient(
+                            colors: [AppTheme.primaryColor, AppTheme.primaryLight],
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => const Report()),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: AppTheme.spacing12),
+                      Expanded(
+                        child: _buildActionCard(
+                          context: context,
+                          icon: Icons.list_alt_rounded,
+                          title: 'View\nReports',
+                          gradient: const LinearGradient(
+                            colors: [AppTheme.accentColor, AppTheme.accentLight],
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => const ReportDetails()),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: AppTheme.spacing12),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: _buildActionCard(
+                          context: context,
+                          icon: Icons.timeline,
+                          title: 'Track\nStatus',
+                          gradient: const LinearGradient(
+                            colors: [AppTheme.infoColor, Color(0xFF60A5FA)],
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => const ReportStatus()),
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: AppTheme.spacing12),
+                      Expanded(
+                        child: _buildActionCard(
+                          context: context,
+                          icon: Icons.help_outline,
+                          title: 'Help &\nFAQ',
+                          gradient: const LinearGradient(
+                            colors: [AppTheme.successColor, Color(0xFF34D399)],
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => const Help()),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: AppTheme.spacing24),
+
+            // Resources Section
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: AppTheme.spacing16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Resources',
+                    style: AppTheme.h3,
+                  ),
+                  const SizedBox(height: AppTheme.spacing16),
+                  _buildResourceCard(
+                    icon: Icons.info_outline,
+                    title: 'Understanding Corruption',
+                    description: 'Learn about different types of corruption and how to identify them',
+                    onTap: () {
+                      // Navigate to resources
+                    },
+                  ),
+                  const SizedBox(height: AppTheme.spacing12),
+                  _buildResourceCard(
+                    icon: Icons.security_outlined,
+                    title: 'Your Rights & Protection',
+                    description: 'Information about whistleblower protection and your legal rights',
+                    onTap: () {
+                      // Navigate to resources
+                    },
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: AppTheme.spacing32),
           ],
         ),
-        )   
+      ),
+    );
+  }
 
+  Widget _buildStatCard({
+    required IconData icon,
+    required String label,
+    required String value,
+    required Color color,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(AppTheme.spacing16),
+      decoration: AppTheme.cardDecoration(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(AppTheme.spacing8),
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
+            ),
+            child: Icon(icon, color: color, size: 24),
+          ),
+          const SizedBox(height: AppTheme.spacing12),
+          Text(
+            value,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: AppTheme.textPrimary,
+            ),
+          ),
+          const SizedBox(height: AppTheme.spacing4),
+          Text(
+            label,
+            style: AppTheme.caption,
+          ),
+        ],
       ),
-  ]
+    );
+  }
+
+  Widget _buildActionCard({
+    required BuildContext context,
+    required IconData icon,
+    required String title,
+    required Gradient gradient,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+      child: Container(
+        height: 120,
+        decoration: BoxDecoration(
+          gradient: gradient,
+          borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+          boxShadow: AppTheme.cardShadow,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(AppTheme.spacing16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Icon(icon, color: Colors.white, size: 32),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  height: 1.2,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
+    );
+  }
+
+  Widget _buildResourceCard({
+    required IconData icon,
+    required String title,
+    required String description,
+    required VoidCallback onTap,
+  }) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(AppTheme.radiusMedium),
+      child: Container(
+        padding: const EdgeInsets.all(AppTheme.spacing16),
+        decoration: AppTheme.cardDecoration(),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(AppTheme.spacing12),
+              decoration: BoxDecoration(
+                color: AppTheme.primaryColor.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
+              ),
+              child: Icon(icon, color: AppTheme.primaryColor, size: 28),
+            ),
+            const SizedBox(width: AppTheme.spacing16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: AppTheme.subtitle1,
+                  ),
+                  const SizedBox(height: AppTheme.spacing4),
+                  Text(
+                    description,
+                    style: AppTheme.caption,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+            const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+              color: AppTheme.textLight,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,8 +1,7 @@
 import 'package:expose_corruption_app/screens/login.dart';
+import 'package:expose_corruption_app/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,7 +12,9 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
+  late Animation<double> _fadeAnimation;
+  late Animation<double> _scaleAnimation;
+  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -21,20 +22,48 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 2000),
       vsync: this,
     );
 
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.0, 0.6, curve: Curves.easeIn),
+      ),
+    );
 
-    _animation.addListener(() {
-      setState(() {});
-    });
+    _scaleAnimation = Tween<double>(begin: 0.5, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.0, 0.6, curve: Curves.elasticOut),
+      ),
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.3),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0.3, 0.8, curve: Curves.easeOut),
+      ),
+    );
+
     _controller.forward();
-    Future.delayed(const Duration(seconds: 3), () {
-      return Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const Login(),
-      ));
+    
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) => const Login(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+            transitionDuration: const Duration(milliseconds: 500),
+          ),
+        );
+      }
     });
   }
 
@@ -48,67 +77,99 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF4F4F9),
-      body: AnimatedBuilder(
-        animation: _animation,
-        builder: (context, child) {
-          Color backgroundColor = Color.lerp(
-            Color(0xFF4B0082),
-              Color(0xFFD8D2CB),
-            _animation.value,
-          ) ?? Color(0xFF00FFFF);
-
-          double opacity = 1.0 - _animation.value;
-
-          return Stack(
-            fit: StackFit.expand,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [AppTheme.primaryColor, AppTheme.primaryLight, AppTheme.accentLight],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Positioned(
-                top: -MediaQuery.of(context).size.height * _animation.value,
-                left: -MediaQuery.of(context).size.width * _animation.value,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  color: backgroundColor,
-                ),
-              ),
-              Positioned(
-                bottom: -MediaQuery.of(context).size.height * _animation.value,
-                right: -MediaQuery.of(context).size.width * _animation.value,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  color: backgroundColor,
-                ),
-              ),
-              const Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.gavel_rounded,
-                      size: 80,
-                      color: Color(0xFF4B0082),
+              ScaleTransition(
+                scale: _scaleAnimation,
+                child: FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: Container(
+                    padding: const EdgeInsets.all(AppTheme.spacing32),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white.withOpacity(0.3),
+                          blurRadius: 40,
+                          spreadRadius: 10,
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 14),
-                    Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
-                  child: Text(
-                      'Expose the Corrupt',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF2F2F2F),
-                        fontSize: 22,
-                      ),
+                    child: const Icon(
+                      Icons.shield_outlined,
+                      size: 100,
+                      color: Colors.white,
                     ),
                   ),
-                    
-                  ],
+                ),
+              ),
+              const SizedBox(height: AppTheme.spacing40),
+              SlideTransition(
+                position: _slideAnimation,
+                child: FadeTransition(
+                  opacity: _fadeAnimation,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Expose Corruption',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          letterSpacing: 1.5,
+                        ),
+                      ),
+                      const SizedBox(height: AppTheme.spacing12),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: AppTheme.spacing24,
+                          vertical: AppTheme.spacing8,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
+                        ),
+                        child: const Text(
+                          'Your Voice Matters',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: AppTheme.spacing48),
+              FadeTransition(
+                opacity: _fadeAnimation,
+                child: const SizedBox(
+                  width: 40,
+                  height: 40,
+                  child: CircularProgressIndicator(
+                    color: Colors.white,
+                    strokeWidth: 3,
+                  ),
                 ),
               ),
             ],
-          );
-        },
+          ),
+        ),
       ),
     );
-  }}
+  }
+}
